@@ -1,4 +1,5 @@
 import React from "react";
+import ImageByHour from "./ImageByHour";
 import Spinner from "./Spinner";
 
 const Card = ({ showData, loadingData, weather, forecast }) => {
@@ -7,6 +8,10 @@ const Card = ({ showData, loadingData, weather, forecast }) => {
   let month = today.getMonth() + 1;
   let year = today.getFullYear();
   let date = day + "/" + month + "/" + year;
+  let fecha = new Date();
+  let hora = fecha.getHours();
+  let minutes = fecha.getMinutes();
+  let minutesLesTen = fecha.getMinutes()<10?'0':''
 
   let url = "";
   let iconUrl = "";
@@ -60,26 +65,24 @@ const Card = ({ showData, loadingData, weather, forecast }) => {
   }
 
   return (
-    <div className="mt-5">
+    <div>
       {showData === true ? (
         <div className="container">
-          <div className="card mb-3 mx-auto bg-dark text-light">
+          <div className="card p-3 mx-auto bg-info">
             <div className="row g-0">
               <div className=" col-md-6">
-                <h3 className="card-title">{weather.name}</h3>
-                <p className="card-date">{date}</p>
-                <h1 className="card-temp">
+                <h3 className="card-title text-warning">{weather.name}</h3>
+                <p className="card-date text-warning">{date}</p>
+                <br />
+                <p className="card-date text-warning">{hora + ":" + minutesLesTen + minutes + "h"}</p>
+                <h1 className="card-temp text-light">
                   {(weather.main.temp - 273.15).toFixed(1)}ºC
                 </h1>
-                <p className="card-desc">
+                <p className="card-desc text-light">
                   <img src={iconUrl} alt="icon" />
                   {weather.weather[0].description}
                 </p>
-                <img
-                  src="https://images.fineartamerica.com/images-medium-large-5/galaxies-reflection-toby-harriman.jpg"
-                  className="img-fluid rounded-start"
-                  alt="imagen-fondo"
-                />
+                <ImageByHour />
               </div>
               <div className="col-md-6">
                 <div className="card-body text-start mt-2">
@@ -110,6 +113,7 @@ const Card = ({ showData, loadingData, weather, forecast }) => {
                     <p className="description">
                       {" "}
                       <img src={iconUrl3} alt="icon" />
+                      <br />
                       {forecast.list[1].weather[0].description}
                     </p>
                     <p className="temp">
@@ -121,6 +125,7 @@ const Card = ({ showData, loadingData, weather, forecast }) => {
                     <p className="description">
                       {" "}
                       <img src={iconUrl6} alt="icon" />
+                      <br />
                       {forecast.list[2].weather[0].description}
                     </p>
                     <p className="temp">
@@ -132,6 +137,7 @@ const Card = ({ showData, loadingData, weather, forecast }) => {
                     <p className="description">
                       {" "}
                       <img src={iconUrl9} alt="icon" />
+                      <br />
                       {forecast.list[3].weather[0].description}
                     </p>
                     <p className="temp">
