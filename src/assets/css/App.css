@@ -15,43 +15,39 @@
   );
 }
 
-.App {
-  text-align: center;
-}
-
 .input-group {
   max-width: 60%;
+  margin: 0 auto;
 }
 
-.container{
-  border: none;
-}
 .card {
   max-width: 60%;
   border: none;
+  margin: 0 auto;
 }
+
 .card-title {
-  position: absolute;
-  padding: 20px;
+  font-size: 2rem;
 }
+
 .card-date {
-  position: absolute;
-  padding-left: 20px;
-  margin-top: 60px;
+  font-size: 1rem;
 }
+
 .card-temp {
-  position: absolute;
-  padding-left: 20px;
-  margin-top: 300px;
-  font-size: 50px;
+  font-size: 3rem;
 }
+
 .card-desc {
-  position: absolute;
-  padding-left: 20px;
-  margin-top: 350px;
+  font-size: 1.5rem;
 }
-.card-timezone {
-  position: absolute;
-  margin-top: 100px;
-  padding-left: 20px;
+
+.card-body {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .card-body {
+    text-align: left;
+  }
 }

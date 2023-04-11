@@ -95,13 +95,13 @@ const Card = ({ showData, loadingData, weather, forecast }) => {
   return (
     <div>
       {showData === true ? (
-        <div className="container">
+        <div className="container-fluid">
           <div className={`card p-3 mx-auto ${bgColor} ${textColor}`}>
             <div className="row g-0">
-              <div className=" col-md-6">
+              <div className="col-xs-12 col-sm-6">
                 <h3 className={`card-title mt-2`}>{weather.name}</h3>
                 <p className={`card-date`}>{date}</p>
-                <br />
+                
                 <p className={`card-date`}>{hora + ":" + minutesLesTen + minutes + "h"}</p>
                 <h1 className={`card-temp`}>
                   {(weather.main.temp - 273.15).toFixed(1)}ºC
@@ -110,9 +110,8 @@ const Card = ({ showData, loadingData, weather, forecast }) => {
                   <img src={iconUrl} alt="icon" />
                   {weather.weather[0].description}
                 </p>
-                {/* <ImageByHour /> */}
               </div>
-              <div className="col-md-6">
+              <div className="col-xs-12 col-sm-6">
                 <div className="card-body text-start mt-2">
                   <h5 className={`card-test`}>
                     Temperatura máxima:{" "}
