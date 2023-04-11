@@ -15,6 +15,25 @@
   );
 }
 
+@media (max-width: 768px){
+  #mainbody {
+    height: 100%;
+    background-image: linear-gradient(
+      to bottom,
+      #d6f1ff,
+      #c6e8ff,
+      #b6deff,
+      #a6d5ff,
+      #97ccff,
+      #87c2ff,
+      #77b9ff,
+      #67afff,
+      #4ab0ff,
+      #008fff
+    );
+  }
+}
+
 .input-group {
   max-width: 60%;
   margin: 0 auto;
