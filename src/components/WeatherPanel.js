@@ -1,3 +1,4 @@
+/* eslint-disable no-throw-literal */
 import React, { useState } from "react";
 import Form from "./Form";
 import Card from "./Card";

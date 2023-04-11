@@ -1,0 +1,58 @@
+.morning {
+  background-image: linear-gradient(
+    to bottom,
+    #ffefd5,
+    #ffdab9,
+    #ffc59d,
+    #ffb082,
+    #ff9c66,
+    #ff8750,
+    #ff731a
+  );
+  border: solid #ffb082;
+}
+
+.midday {
+  background-image: linear-gradient(
+    to bottom,
+    #d6f1ff,
+    #a6dfff,
+    #77c4ff,
+    #4ab0ff,
+    #008fff
+  );
+  border:solid #77c4ff;
+  ;
+}
+
+.afternoon {
+  background-image: linear-gradient(
+    to bottom,
+    #ffc09f,
+    #ffa27a,
+    #ff8455,
+    #ff662f,
+    #ff480a
+  );
+  border: solid #ff8455;
+}
+
+.night {
+  background-image: linear-gradient(
+    to bottom,
+    #0d0c22,
+    #1b1a44,
+    #2a2b5b,
+    #3c3d75,
+    #52538d
+  );
+  border: solid #2a2b5b;
+}
+
+
+.textLight {
+  color: white;
+}
+.textDark {
+  color: black;
+}

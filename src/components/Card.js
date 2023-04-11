@@ -1,8 +1,36 @@
-import React from "react";
-import ImageByHour from "./ImageByHour";
+import React, { useState, useEffect } from "react";
 import Spinner from "./Spinner";
+import "../assets/css/ColorByHour.css"
 
 const Card = ({ showData, loadingData, weather, forecast }) => {
+
+  const [bgColor, setBgColor] = useState("");
+  const [textColor, setTextColor] = useState("")
+
+  useEffect(() => {
+    const date = new Date();
+    const hour = date.getHours();
+
+    if (hour >= 6 && hour < 11) {
+      setBgColor("morning");
+      setTextColor("textDark")
+    } else if (hour >= 12 && hour < 18) {
+      setBgColor("midday");
+      setTextColor("textDark")
+    } else if (hour >= 18 && hour < 22) {
+      setBgColor("afternoon");
+      setTextColor("textDark")
+    } else {
+      setBgColor("night");
+      setTextColor("textLight")
+    }
+  }, []);
+
+  console.log(bgColor)
+  
+
+
+
   let today = new Date();
   let day = today.getDate();
   let month = today.getMonth() + 1;
@@ -68,25 +96,25 @@ const Card = ({ showData, loadingData, weather, forecast }) => {
     <div>
       {showData === true ? (
         <div className="container">
-          <div className="card p-3 mx-auto bg-info">
+          <div className={`card p-3 mx-auto ${bgColor} ${textColor}`}>
             <div className="row g-0">
               <div className=" col-md-6">
-                <h3 className="card-title text-warning">{weather.name}</h3>
-                <p className="card-date text-warning">{date}</p>
+                <h3 className={`card-title mt-2`}>{weather.name}</h3>
+                <p className={`card-date`}>{date}</p>
                 <br />
-                <p className="card-date text-warning">{hora + ":" + minutesLesTen + minutes + "h"}</p>
-                <h1 className="card-temp text-light">
+                <p className={`card-date`}>{hora + ":" + minutesLesTen + minutes + "h"}</p>
+                <h1 className={`card-temp`}>
                   {(weather.main.temp - 273.15).toFixed(1)}ºC
                 </h1>
-                <p className="card-desc text-light">
+                <p className={`card-desc`}>
                   <img src={iconUrl} alt="icon" />
                   {weather.weather[0].description}
                 </p>
-                <ImageByHour />
+                {/* <ImageByHour /> */}
               </div>
               <div className="col-md-6">
                 <div className="card-body text-start mt-2">
-                  <h5 className="card-test">
+                  <h5 className={`card-test`}>
                     Temperatura máxima:{" "}
                     {(weather.main.temp_max - 273.15).toFixed(1)}ºC
                   </h5>
@@ -150,7 +178,7 @@ const Card = ({ showData, loadingData, weather, forecast }) => {
           </div>
         </div>
       ) : (
-        <h2 className="text-light">Sin Datos</h2>
+        <h2 className={`${textColor}`}>No hay datos o Localización incorrecta</h2>
       )}
     </div>
   );
